@@ -1,0 +1,5 @@
+Store_ID,Vendor_ID,Product_SKU,Revenue,Units_Sold,Transaction_ID,Day,Month,Year,Quarter,StoreName,VendorName,Category,Product_Brand,Discount_Applied,Customer_Segment,Sales_Channel
+ST0001,VND0001,APL-IPH15,94999,1,TXN000051,18,7,2024,3,TechWorld Mumbai,Apple Store Partner,Smartphones,Apple,0.03,Premium,Online
+ST0027,VND0047,NOT-11PRO,34999,2,TXN000052,20,7,2024,3,MobileWorld Surat,Nothing India,Smartphones,Nothing,0.15,Premium,In-Store
+ST0002,VND0048,BOS-QC70,34999,1,TXN000053,22,7,2024,3,ElectroMart Delhi,Bose India,Audio,Bose,0.10,Premium,Online
+ST0028,VND0049,DJI-MIN3,89999,1,TXN000054,25,7,2024,3,DroneHub Bangalore,DJI India,Camera,DJI,0.08,Professional,In-Store
