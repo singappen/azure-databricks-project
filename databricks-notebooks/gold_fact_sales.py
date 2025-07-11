@@ -22,13 +22,13 @@ df_silver.display()
 
 # COMMAND ----------
 
-df_dealer = spark.sql("SELECT * elesales_catalog.gold.dim_model")
+df_product = spark.sql("SELECT * elesales_catalog.gold.dim_model")
 
-df_branch = spark.sql("SELECT * elesales_catalog.gold.dim_store")
+df_store = spark.sql("SELECT * elesales_catalog.gold.dim_store")
 
-df_model = spark.sql("SELECT * elesales_catalog.gold.dim_transaction")
+df_transaction = spark.sql("SELECT * elesales_catalog.gold.dim_transaction")
 
-df_date = spark.sql("SELECT * elesales_catalog.gold.dim_vendor")
+df_vendor = spark.sql("SELECT * elesales_catalog.gold.dim_vendor")
 
 # COMMAND ----------
 
@@ -37,11 +37,11 @@ df_date = spark.sql("SELECT * elesales_catalog.gold.dim_vendor")
 
 # COMMAND ----------
 
-df_fact = df_silver.join(df_branch, df_silver.Branch_ID==df_branch.Branch_ID, how='left') \
-    .join(df_dealer, df_silver.Dealer_ID==df_dealer.Dealer_ID, how='left') \
-    .join(df_model, df_silver.Model_ID==df_model.Model_ID, how='left') \
-    .join(df_date, df_silver.Date_ID==df_date.Date_ID, how='left')\
-    .select(df_silver.Revenue, df_silver.Units_Sold, df_branch.dim_branch_key, df_dealer.dim_dealer_key, df_model.dim_model_key, df_date.dim_date_key)
+df_fact = df_silver.join(df_product, df_silver.Product_SKU==df_product.Product_SKU, how='left') \
+    .join(df_store, df_silver.Store_ID==df_store.Store_ID, how='left') \
+    .join(df_transaction, df_silver.Transaction_ID==df_transaction.Transaction_ID, how='left') \
+    .join(df_vendor, df_silver.Vendor_ID==df_vendor.Vendor_ID, how='left')\
+    .select(df_silver.Revenue, df_silver.Units_Sold, df_product.dim_model_key, df_store.dim_store_key, df_transaction.dim_transaction_key, df_vendor.dim_vendor_key)
 
 # COMMAND ----------
 
